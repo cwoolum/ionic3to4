@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "my-appi": {
+    "app": {
       "root": "",
       "projectType": "application",
       "architect": {
@@ -12,6 +12,7 @@
           "options": {
             "outputPath": "dist",
             "index": "src/index.html",
+            "polyfills": "src/polyfills.ts",
             "main": "src/app/main.ts",
             "tsConfig": "src/tsconfig.app.json",
             "assets": [
@@ -19,6 +20,21 @@
                 "glob": "**/*",
                 "input": "src/assets",
                 "output": "/assets"
+              },
+              {
+                "glob": "**/*",
+                "input": "node_modules/@ionic/angular/dist/ionic",
+                "output": "./ionic"
+              },
+              {
+                "glob": "**/*",
+                "input": "C:\\Users\\slick\\Source\\Repos\\ionic3to4\\platforms\\browser\\platform_www",
+                "output": "./"
+              },
+              {
+                "glob": "**/*",
+                "input": "C:\\Users\\slick\\Source\\Repos\\ionic3to4\\platforms\\browser\\platform_www",
+                "output": "./"
               }
             ],
             "styles": [],
@@ -29,14 +45,14 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "my-appi:build"
+            "browserTarget": "app:build"
           },
           "configurations": {}
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "my-appi:build"
+            "browserTarget": "app:build"
           }
         },
         "lint": {
@@ -48,7 +64,7 @@
         }
       }
     },
-    "my-appi-e2e": {
+    "app-e2e": {
       "root": "",
       "projectType": "application",
       "cli": {},
